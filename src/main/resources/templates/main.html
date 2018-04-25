@@ -663,7 +663,7 @@
 
 <!-- basic scripts -->
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script th:src="@{/static/js/jquery-2.0.3.min.js}"></script>
 
 <script th:src="@{/static/js/bootstrap.min.js}"></script>
 <script th:src="@{/static/js/typeahead-bs2.min.js}"></script>
@@ -672,18 +672,10 @@
 <script th:src="@{/static/js/jquery-ui-1.10.3.custom.min.js}"></script>
 <script th:src="@{/static/js/jquery.ui.touch-punch.min.js}"></script>
 <script th:src="@{/static/js/jquery.slimscroll.min.js}"></script>
-<script th:src="@{/static/js/jquery.easy-pie-chart.min.js}"></script>
-<script th:src="@{/static/js/jquery.sparkline.min.js}"></script>
-<script th:src="@{/static/js/flot/jquery.flot.min.js}"></script>
-<script th:src="@{/static/js/flot/jquery.flot.pie.min.js}"></script>
-<script th:src="@{/static/js/flot/jquery.flot.resize.min.js}"></script>
 
-<!-- ace scripts -->
+<script th:src="@{/static/js/ace-elements.min.js}"></script>
+<script th:src="@{/static/js/ace.min.js}"></script>
 
-<script th:src="@{/assets/js/ace-elements.min.js"></script>
-<script th:src="@{/assets/js/ace.min.js"></script>
-
-<!-- inline scripts related to this page -->
 
 <script th:inline="javascript">
     jQuery(function($) {
