@@ -307,7 +307,7 @@
 
         <div class="sidebar" id="sidebar">
 
-            <ul class="nav nav-list" th:each="menu : ${userMenu}">
+            <ul class="nav nav-list" th:each="menu : ${userMenu}" id="menu-list">
                 <li>
                     <a href="#" class="dropdown-toggle">
                         <i th:class="${menu.icon}"></i>
@@ -316,7 +316,7 @@
                     </a>
                     <ul class="submenu">
                         <li th:each="cmenu : ${menu.childMenus}">
-                            <a th:href="@{${cmenu.url}}">
+                            <a href="javascript:void(0)" th:onclick="'javascript:menuClick(\''+${cmenu.url}+'\','+this+');'">
                                 <i th:class="${cmenu.icon}"></i>
                                 <span th:text="${cmenu.name}"></span>
                             </a>
@@ -363,7 +363,7 @@
         <div class="main-content">
             <iframe id="iframe-page-content" src="gallery1.html" width="100%"  frameborder="no" border="0" marginwidth="0"
 
-                    marginheight=" 0" scrolling="no" allowtransparency="yes"></iframe>
+                    marginheight=" 0" scrolling="yes" allowtransparency="yes"></iframe>
         </div>
         <!-- /.main-content -->
     </div><!-- /.main-container-inner -->
@@ -396,7 +396,17 @@
         document.getElementById('iframe-page-content').style.height=height+'px';
 
     });
-    function menuClick(menuUrl){
+    function menuClick(menuUrl,e){
+        console.info(menuUrl);
+
+        $("#menu-list").children(".active").each(function(){
+            console.info($(this));
+            $(this).removeClass("active open");
+            $(this).children(".active").removeClass("active");
+        });
+
+        $(e).parent().addClass("active");
+        $(e).parent().parent().parent().addClass("active open");
         $("#iframe-page-content").attr('src',menuUrl);
     }
 </script>
